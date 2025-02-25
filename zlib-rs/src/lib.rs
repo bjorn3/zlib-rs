@@ -2,6 +2,7 @@
 #![cfg_attr(not(any(test, feature = "rust-allocator")), no_std)]
 //#![feature(optimize_attribute)]
 #![feature(loop_match)]
+#![feature(stmt_expr_attributes)]
 
 #[cfg(any(feature = "rust-allocator", feature = "c-allocator"))]
 extern crate alloc;
