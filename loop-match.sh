@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -eou pipefail
 
 dfa="-Cllvm-args=-enable-dfa-jump-thread"
 
@@ -17,7 +18,7 @@ cp target/release/examples/blogpost-uncompress target/release/examples/uncompres
 RUSTFLAGS="$dfa" cargo +stage1 build --release --example blogpost-uncompress $loop_match
 cp target/release/examples/blogpost-uncompress target/release/examples/uncompress-llvm-dfa-loop-match
 
-poop "target/release/examples/uncompress-baseline rs-chunked 4" 
-    "target/release/examples/uncompress-llvm-dfa rs-chunked 4" 
-    "target/release/examples/uncompress-loop-match rs-chunked 4" 
-    "target/release/examples/uncompress-llvm-dfa-loop-match rs-chunked 4" 
+poop "target/release/examples/uncompress-baseline rs-chunked 4" \
+    "target/release/examples/uncompress-llvm-dfa rs-chunked 4" \
+    "target/release/examples/uncompress-loop-match rs-chunked 4" \
+    "target/release/examples/uncompress-llvm-dfa-loop-match rs-chunked 4"
